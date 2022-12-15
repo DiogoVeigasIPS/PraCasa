@@ -301,6 +301,25 @@ section.to-buy p{
     }
 }
 
+/* Produtos Similares */
+
+#similar-products.list-img-text h1{
+    margin-bottom: 0px;
+}
+
+@media screen and (min-width: 840px){
+    .list-img-text article {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .list-img-text article a figure {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+/* Container */
+
 @media screen and (max-width: 1599px){
     .main-picture, .side-pictures div, .to-buy, .product-details{
         border: solid 0.5px rgb(233, 233, 233);

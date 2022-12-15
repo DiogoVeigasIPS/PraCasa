@@ -13,11 +13,12 @@
     padding: 1rem;
     padding-bottom: 2.5rem;
     cursor:pointer;
+    overflow-y: hidden; /* nalguns síteos pede espaço a mais devido ao padding*/
 }
 
 .mob-only:hover{
-    opacity: 0.7;
-    transition: 0.5s;
+    opacity: 0.7; /*diminui a opacidade do elemento e dos filhos*/
+    transition: 0.5s; /*transição entre estados*/
 }
 
 .filter-box{
@@ -29,16 +30,16 @@
 }
 
 input[type=checkbox].show-filters:checked ~ .filter-box{
-    display: block; 
+    display: block; /*quando a checkbox dos filtros está checked, os filtros aparecem*/
 }
 
 .filter-box i.fa{
     color:rgb(255, 170, 0);
     font-size: large;
-    transform: translateY(20%);
+    transform: translateY(20%);/*alinha melhor a estrela*/
 }
 
-.filter-box i.fa::after{
+.filter-box i.fa::after{ /*adiciona padding à direita da estrela*/
     content: "";
     padding-right:1vw;
 }
@@ -70,17 +71,17 @@ input[type=checkbox].show-filters:checked ~ .filter-box{
 
 .results{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /*uma coluna apenas*/
     gap:1rem;
 }
 
 .result-item a{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;/*por cada columa uma linha*/
     grid-template-rows: 1fr;
     padding:1rem;
     border: 1px rgb(234, 234, 234) solid;
-    cursor: pointer;
+    cursor: pointer; /*faz com que o rato fique com a mãosinha*/
     min-width: 0;
 }  
 
@@ -100,17 +101,14 @@ input[type=checkbox].show-filters:checked ~ .filter-box{
         grid-template-columns: 5fr 3fr;
         align-items: center;
     }
-    .mob-only{
-        overflow: hidden;
-    }
 }
 
 @media screen and (min-width: 1000px){
     .mob-only, .show-filters{
-        display: none;
+        display: none; /*em dispositivos maiores não é necessário o botão*/
     }
     .filter-box{
-        display: block;
+        display: block; 
     }
     .filter-results{
         display: grid;
@@ -126,7 +124,7 @@ input[type=checkbox].show-filters:checked ~ .filter-box{
         height: 70vh;
     }
     .rating{
-        width: 20vw;
+        width: 21vw;
     }
     .result-box h1{
         font-size: calc(var(--title-text-size) + var(--responsive-text-size));
@@ -160,9 +158,6 @@ input[type=checkbox].show-filters:checked ~ .filter-box{
     .filter-results{
         display: grid;
         grid-template-columns: 1fr 4fr;
-    }
-    .rating{
-        width: 10vw;
     }
 }
 
@@ -213,10 +208,25 @@ input[type=checkbox].show-filters:checked ~ .filter-box{
 
 /* Produtos Similares */
 
-#similar-products.square-4-4 h1{
+#similar-products.list-img-text h1{
     margin-bottom: 0px;
 }
 
-#similar-products.square-4-4 h1 + p{
-    margin-bottom: var(--title-margin);
+@media screen and (min-width: 840px){
+    .list-img-text article {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .list-img-text article a figure {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+/* Containers */
+
+@media screen and (max-width: 1599px){
+    .result-box, .list-img-text, .filter-box{
+        border: solid 0.5px rgb(233, 233, 233);
+    }
 }

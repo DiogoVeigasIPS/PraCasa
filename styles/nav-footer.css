@@ -32,15 +32,15 @@ ul{
 /* Header */
 .header{
     background-color: var(--backNav);
-    position: sticky;
+    position: sticky; /* dependendo do scroll, pode tanto ser fixo, ou relativo */
     top: 0;
     width: 100%;
-    z-index: 99; /* menu gets up front slider */
+    z-index: 99; /* menu fica acima de tudo */
 }
 
 /* Logo */
 .logo{
-    display: inline-block;
+    display: inline-block; /* é como um bock normal, no entanto, permite que outros elementos fiquem na sua linha*/
     color: var(--white);
     font-size: 60px;
     margin-left: 10px;
@@ -56,15 +56,13 @@ ul{
     height: 100%;
     position: fixed;
     background-color: var(--backNav);
-/*     overflow: hidden;
- */}
+}
 
 .menu a{
     display: block;
     padding: 30px;
     color: var(--white);
-/*     overflow: hidden;
- */}
+}
 
 .menu a:hover{
     background-color: var(--hoverNav);
@@ -75,12 +73,12 @@ ul{
     transition: max-height 100ms ease-out;
 }
 
-/* Menu Icon */
+/* hamburger, 3 traços */
 .hamb{
     cursor: pointer;
     float: right;
     padding: 40px 20px;
-}/* Style label tag */
+}
 
 .hamb-line {
     background: var(--white);
@@ -89,7 +87,7 @@ ul{
     position: relative;
     width: 24px;
     overflow:visible;
-} /* Style span tag */
+}
 
 .hamb-line::before, .hamb-line::after{
     background: var(--white);
@@ -120,7 +118,7 @@ ul{
     background: transparent;
 }
 .side-menu:checked ~ .hamb .hamb-line::before {
-    transform: rotate(-45deg);
+    transform: rotate(-45deg); /*rodam para dessa maneira fazer uma animação de cruzamento*/
     top:0;
 }
 .side-menu:checked ~ .hamb .hamb-line::after {
@@ -177,7 +175,7 @@ input[type="search"]:focus {
     justify-content: space-evenly;
     gap: 1rem;
     flex-flow: row nowrap;
-    white-space: nowrap;
+    white-space: nowrap; /*texto que não caiba, ainda assim, continua em frente, em vez de ir para outra linha*/
     padding: 0.7rem;
 }
 
@@ -189,8 +187,6 @@ input[type="search"]:focus {
     color: var(--hoverNav);
 }
 
-
-
 /* TABLET & PC */
 @media (min-width: 770px) {
     .nav{
@@ -198,7 +194,7 @@ input[type="search"]:focus {
         top: 0;
         position: relative;
         float: right;
-        width: fit-content;
+        width: fit-content; /*semelhante a 100%, senão idêntico. Usará todo o espaço possível sem ultrapassar o max*/
     }
     .menu li{
         float: left;
