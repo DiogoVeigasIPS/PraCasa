@@ -33,15 +33,9 @@ input[type=checkbox].show-filters:checked ~ .filter-box{
     display: block; /*quando a checkbox dos filtros está checked, os filtros aparecem*/
 }
 
-.filter-box i.fa{
+.filter-box .star{
     color:rgb(255, 170, 0);
-    font-size: large;
-    transform: translateY(20%);/*alinha melhor a estrela*/
-}
-
-.filter-box i.fa::after{ /*adiciona padding à direita da estrela*/
-    content: "";
-    padding-right:1vw;
+    font-size: x-large;
 }
 
 .filter-box .select-rating{
