@@ -1,11 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"); /* import font */
+
 :root{
+    --backNav: #36383F;
+    --backNavTransparent: #36383F;
+    --backNav2: #262c42;
+    --primaryNav:#212327;
+    --whiteNav: #f9f9f9;
+    --hoverNav: #85888C;
+    --boxShadowColor: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
     --text-color:rgb(38, 38, 38);
     --text-color-highlight:rgb(19, 120, 221);
     --title-text-size:1.5em;
     --text-size:1em;
-    --white: white;
     --gray: rgb(95, 95, 95);
+    --light-gray: rgb(184, 184, 184);
+    --lighter-gray: rgb(217, 217, 217);
     --title-margin: 5%;
+
+    --h1-color: black;
+    --white: #f9f9f9;
 
     --price-size: 1.2em;
     --name-size: 1em;
@@ -17,10 +31,31 @@
 
     --background-color: rgb(241, 241, 241);
 
+    --border-color: rgb(233, 233, 233);
+
+}
+/*--------------------------Reset-------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 body{
     background-color: var(--background-color);
+    font-family: "Poppins", sans-serif;
+}
+
+h1{
+    color:var(--h1-color);
+}
+
+/*--------------------------espacamento da pagina---------------------------*/
+
+#page-content{
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 /* -----------------------categorias e boas festas----------------------- */
@@ -28,7 +63,7 @@ body{
 .square-4-4{
     padding: 1rem;
     margin: 1rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: var(--boxShadowColor);
     background-color: var(--white);
 }
 
@@ -41,7 +76,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    column-gap: 5vw;
+    gap: 5vw;
     overflow-y: hidden;
 }
 
@@ -71,7 +106,7 @@ body{
     text-decoration: underline;
 }
 
-.square-4-4 img:hover{
+.square-4-4 figure:hover img{
     border-radius: 1%;
     opacity: 0.7;
     transition: 0.5s;
@@ -105,9 +140,9 @@ body{
         row-gap: 3vw;
     }
 
-    main{
+    /* main{
         padding: 3vw;
-    }
+    } */
 }
 
 @media screen and (min-width: 840px) and (max-width:940px){
@@ -121,29 +156,28 @@ body{
         row-gap: 2vw;
     }
 
-    main{
-        padding-left: 10vw;
-        padding-right: 10vw;
-    }
-
     .square-4-4 figcaption, .square-4-4 p a{
         font-size: var(--text-size);
     }
 }
 
-@media screen and (min-width: 1600px){
+/* @media screen and (min-width: 1500px){
     main{
         padding-left: 12vw;
         padding-right: 12vw;
     }
-}
+    .slider-header{
+        padding-left: calc(12vw + 1rem);
+        padding-right: calc(12vw + 1rem);
+    } 
+} */
 
 /* -----------------------novidades e descontos----------------------- */
 
 .list-img-text{
     padding: 1rem;
     margin: 1rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: var(--boxShadowColor);
     background-color: var(--white);
 }
 
@@ -182,6 +216,7 @@ body{
     color: var(--white);
     display: inline;
     width: 80%;
+    padding-left: 0.5rem;
 }
 
 .list-img-text .discount::before{
@@ -193,7 +228,7 @@ body{
     font-size: var(--name-size);
     font-weight: bolder;
     background-color: var(--discount-highlight-color);
-    color: var(--white);
+    color: var(--whiteNav);
     display: inline;
     width: 80%;
     border-radius: 0.3rem;
@@ -209,7 +244,7 @@ body{
 }
 
 .list-img-text a:visited, .list-img-text a{
-    color:var(--text-color)
+    color:var(--text-color);
 }
 
 .list-img-text img:hover{
@@ -246,7 +281,7 @@ body{
 
 @media screen and (max-width: 1599px){
     .square-4-4, .list-img-text{
-        border: solid 0.5px rgb(233, 233, 233);
+        border: solid 0.5px var(--border-color);
     }
 }
 

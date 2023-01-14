@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="styles/nav-footer.css">
-    <link rel="stylesheet" href="styles/slider.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/category-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Icónes brutais -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png"> <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"> <!-- Favicon -->
@@ -36,7 +36,7 @@
             <div><input name="searchContent" id="searchBarForm" type="search" placeholder="Pesquisa..."></div>
         </form>
     </section>
-    
+
     <nav class="categories" id="top-categories">
         <table>
             <tr>
@@ -50,223 +50,205 @@
             </tr>
         </table>
     </nav>
-    
-    <section class="top-button" id="top-button">
+
+    <section class="top-button">
         <div class="top-center">
             <a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
         </div>
     </section>
 
     <div id="page-content">
-        <header class="slider-header">
-            <div id="slider">
-                <figure>
-                    <a href="product-overview.html" onclick="changeSearchValue('Natal')">
-                        <img src="images/slider/christmas-decor.jpg" alt="">
-                    </a>
-                    <img src="images/slider/living-room.jpg" alt="">
-                    <img src="images/slider/bedroom-decor.jpg" alt="">
-                    <img src="images/slider/garden-decor.jpg" alt="">
-                    <img src="images/slider/christmas-decor.jpg" alt="">
-                </figure>
-            </div>
-        </header>
+        <main>  
 
-        <main>
-            <section id="holidays" class="square-4-4">
-                <h1>Boas Festas &#127794;</h1>
+            <section id="more-categories" class="square-4-4">
+                <h1>Mais Categorias</h1>
                 <article>
-                    <a href="product-overview.html" onclick="changeSearchValue('Árvore')"> <!-- Mudar aqui consoante o que pesquisar -->
+                    <a href="christmas-product-overview.html">
                         <figure>
-                            <img src="images/products/pinheiro-nata.webp" alt="Árvore de Natal">
-                            <figcaption>Pinheiros de Natal</figcaption>
+                            <img src="images/products/acessorio.jpg" alt="Acessórios de Casa de Banho">
+                            <figcaption>Acessórios</figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/luzes-natal.jpg" alt="Luzes de Natal">
-                            <figcaption>Luzes Festivas</figcaption>
+                            <img src="images/products/toalha.jpg" alt="Toalhas">
+                            <figcaption>Toalhas e Tapetes</figcaption>
+                        </figure>
+                    </a>
+                    <a href="product-overview.html" onclick="changeSearchValue('Espelho')">
+                        <figure>
+                            <img src="images/products/espelho.jpg" alt="Espelho">
+                            <figcaption>Espelhos</figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/mesa-de-natal.jpg" alt="Mesa de Natal">
-                            <figcaption>Mesa de Natal</figcaption>
-                        </figure>
-                    </a>
-                    <a href="">
-                        <figure>
-                            <img src="images/products/presépio-natal.webp" alt="Presépio de Natal">
-                            <figcaption>Presépio</figcaption>
+                            <img src="images/products/mobilia.jpg" alt="Mobília de Casa de Banho">
+                            <figcaption>Mobília</figcaption>
                         </figure>
                     </a>
                     <p class="view-more"><a href="">Ver mais+</a></p>
                 </article>
             </section>
-                
+
             <section id="news" class="list-img-text">
                 <h1>Novidades &#128226;</h1>
                 <article>
                     <a href="">
                         <figure>
-                            <img src="images/products/mesa.png" alt="Móvel de Sala">
+                            <img src="images/products/toalheiro.png" alt="Toalheiro">
                             <figcaption>
-                                <span class="price">11,90€</span>
-                                <span class="product-name">Mesa para Sala de Estar</span>
-                                <span class="description">Madeira de acácia maciça</span>
+                                <span class="price">15€</span>
+                                <span class="product-name">Toalheiro</span>
+                                <span class="description">Material: aço inoxidável<br> 67 cm</span>
                             </figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/cama.png" alt="Cama">
+                            <img src="images/products/espelho1.png" alt="Espelho">
                             <figcaption>
-                                <span class="price">100€</span>
-                                <span class="product-name">Cama de Casal</span>
-                                <span class="description">100 X 200 cm</span>
+                                <span class="price">130€</span>
+                                <span class="product-name">Armário Espelhado com 1 Porta</span>
+                                <span class="description">Material: branco<br> 63x16x98 cm</span>
                             </figcaption>
                         </figure>
                     </a>
                     <a href="single-product.html">
                         <figure>
-                            <img src="images/products/cadeirafrente.png" alt="Cadeira Einara">
+                            <img src="images/products/armario.png" alt="Armário">
                             <figcaption>
-                                <span class="price">170€</span>
-                                <span class="product-name">Cadeira Einara</span>
-                                <span class="description">Cadeira branca bastante fofa.</span>
+                                <span class="price">200€</span>
+                                <span class="product-name">Armário Aberto</span>
+                                <span class="description">Paralavatório com 1 gaveta<br>Material: branco<br> 82x48x76 cm</span>
                             </figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/tapete.png" alt="Tapete">
+                            <img src="images/products/chuveiro.png" alt="Chuveiro">
                             <figcaption>
-                                <span class="price">1000€</span>
-                                <span class="product-name">Tapete para Sala de Estar</span>
-                                <span class="description">Tapete moderno com 160 X 230 cm</span>
+                                <span class="price">25€</span>
+                                <span class="product-name">Chuveiro com 3 jatos</span>
+                                <span class="description">Cor: cromado</span>
                             </figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/kids.png" alt="Mini-Cavalete">
+                            <img src="images/products/cortina.png" alt="Cortina">
                             <figcaption>
-                                <span class="price">54,99€</span>
-                                <span class="product-name">Cavalete para Crianças</span>
-                                <span class="description">Madeira conífera e incluí um pincél</span>
+                                <span class="price">30€</span>
+                                <span class="product-name">Cortina de Duche</span>
+                                <span class="description">Cor: branco/cinz/bege<br> 180x200 cm</span>
                             </figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/quadro.png" alt="Quadro Decorativo">
+                            <img src="images/products/piacaba.png" alt="Piaçaba">
                             <figcaption>
-                                <span class="price">300€</span>
-                                <span class="product-name">Quadro de Sara Miguel</span>
-                                <span class="description">Denominado por RAÍZES 1, 2022</span>
+                                <span class="price">5€</span>
+                                <span class="product-name">Piaçaba</span>
+                                <span class="description">Cor; preto</span>
                             </figcaption>
                         </figure>
                     </a>
                 </article>
             </section>
 
-            <section id="categoryHighlight" class="square-4-4">
-                <h1>Categorias &#127757;</h1>
+            <section class="list-img-text item-group">
+                <h1>Sanitas</h1>
                 <article>
                     <a href="">
                         <figure>
-                            <img src="images/category/cozinha.jpg" alt="Ilustração de uma cozinha">
-                            <figcaption>Cozinha</figcaption>
-                        </figure>
-                    </a>
-                    <a href="category-page-bathroom.html">
-                        <figure>
-                            <img src="images/category/casadebanho.jpeg" alt="Ilustração de uma casa de banho">
-                            <figcaption>Casa de Banho</figcaption>
-                        </figure>
-                    </a>
-                    <a href="">
-                        <figure>
-                            <img src="images/category/jardim-afe.jpg" alt="Ilustração de um jardim">
-                            <figcaption>Jardim</figcaption>
+                            <img src="images/products/sanita.png" alt="Sanita">
+                            <figcaption>
+                                <span class="price">420€</span>
+                                <span class="product-name">Sanita de Tanque Baixo</span>
+                                <span class="description">Preto Fosco Venice</span>
+                            </figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/category/quarto-kids.jpg" alt="Ilustração de um quarto para crianças">
-                            <figcaption>Kids</figcaption>
+                            <img src="images/products/sanita1.png" alt="Sanita-Bebés">
+                            <figcaption>
+                                <span class="price">45€</span>
+                                <span class="product-name">Sanita Portátil Bebé</span>
+                                <span class="description">Rosa</span>
+                            </figcaption>
                         </figure>
                     </a>
-                    <p class="view-more"><a href="">Ver mais+</a></p>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/sanita2.png" alt="Sanita">
+                            <figcaption>
+                                <span class="price">269,99€</span>
+                                <span class="product-name">Sanita suspensa KENJI</span>
+                                <span class="description">Preto</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/sanita3.png" alt="Sanita">
+                            <figcaption>
+                                <span class="price">55€</span>
+                                <span class="product-name">Sanita ao chão</span>
+                                <span class="description">POP VERTICAL</span>
+                            </figcaption>
+                        </figure>
+                    </a>
                 </article>
             </section>
 
-            <section id="discounts" class="list-img-text">
-                <h1>Promoções &#128176;</h1>
+            <section class="list-img-text item-group">
+                <h1>Armários</h1>
                 <article>
                     <a href="">
                         <figure>
-                            <img src="images/products/snooker.png" alt="Mesa de Jogos">
+                            <img src="images/products/armario1.png" alt="Armário">
                             <figcaption>
-                                <span class="discount">-15%</span>
-                                <span class="product-name">Mesa de Bilhar</span>
-                                <span class="description">Produto americano e dobrável</span>
+                                <span class="price">320€</span>
+                                <span class="product-name">Armário</span>
+                                <span class="description">Para lavatório com 2 gavetas<br> 83x49x64 cm</span>
                             </figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/sofa.png" alt="Sofá">
+                            <img src="images/products/armario2.png" alt="Armário">
                             <figcaption>
-                                <span class="discount">-20%</span>
-                                <span class="product-name">Sofá Mistik</span>
-                                <span class="description">Cinza com 3 lugares</span>
+                                <span class="price">220€</span>
+                                <span class="product-name">Armário</span>
+                                <span class="description">Para lavatório com 2 portas<br>Cor: cinza<br> 64x43x65 cm</span>
                             </figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/mesajantar.png" alt="Mesa de Jantar">
+                            <img src="images/products/armario3.png" alt="Armário">
                             <figcaption>
-                                <span class="discount">-10%</span>
-                                <span class="product-name">Mesa de Jantar OSLO</span>
-                                <span class="description">Mesa de jantar jetangular, com tampo em nogueira, pés torneados e lacados a castanho escuro</span>
+                                <span class="price">230€</span>
+                                <span class="product-name">Armário</span>
+                                <span class="description">Para lavatório com 2 gavetas<br> 102x49x60 cm</span>
                             </figcaption>
                         </figure>
                     </a>
                     <a href="">
                         <figure>
-                            <img src="images/products/fogao.png" alt="Fogão">
+                            <img src="images/products/armario4.png" alt="Estante">
                             <figcaption>
-                                <span class="discount">-40%</span>
-                                <span class="product-name">Fogão Elétrico</span>
-                                <span class="description">4 queimadores com 2600 W</span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="">
-                        <figure>
-                            <img src="images/products/puff.png" alt="Puff">
-                            <figcaption>
-                                <span class="discount">-5%</span>
-                                <span class="product-name">Puff Pear</span>
-                                <span class="description">Inclui enchimento de pérolas de poliestireno expandido de alta recuperação retardante de chama</span>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="">
-                        <figure>
-                            <img src="images/products/cadeirao.png" alt="Cadeirão">
-                            <figcaption>
-                                <span class="discount">-25%</span>
-                                <span class="product-name">Poltrona de massagens reclinável tecido cinzento-escuro</span>
-                                <span class="description">Dimensões na posição sentada: 71 x 90,5 x 96 cm (L x P x A)
-    Dimensões na posição deitada: 71 x 158 x 71 cm (L x P x A)</span>
+                                <span class="price">50€</span>
+                                <span class="product-name">Estante de Parede</span>
+                                <span class="description">Com prateleiras<br>Material: antracite<br> 40x15x75 cm</span>
                             </figcaption>
                         </figure>
                     </a>
                 </article>
             </section>
+
         </main>
     </div>
 
@@ -308,7 +290,7 @@
         </div>
     </footer>
     <div id="page-mask"></div>
-
+    
     <script src="scripts/nav-bar-login.js"></script>
     <script src="scripts/dynamic-filter.js"></script>
 </body>

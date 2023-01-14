@@ -1,0 +1,41 @@
+.list-img-text h1{
+    text-align:center;
+}
+
+.list-img-text figure img{
+    border-radius: 50%;
+}
+
+.boring-text{
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: var(--boxShadowColor);
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
+.boring-text h2{
+    font-size: calc(var(--title-text-size) * 0.9);
+}
+
+.boring-text{
+    text-align: justify;
+}
+
+.boring-text a{
+    color:var(--text-color-highlight);
+}
+
+.boring-text a:hover{
+    text-decoration: underline;
+}
+
+.group{
+    margin-bottom: var(--title-margin);
+}
+
+@media screen and (min-width: 832px){
+    .group{
+        margin-bottom: 1rem;
+    }
+}

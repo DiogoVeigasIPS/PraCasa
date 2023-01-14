@@ -1,0 +1,27 @@
+/* Produtos Similares */
+
+.list-img-text.item-group h1{
+    margin-bottom: 0px;
+}
+
+.list-img-text.item-group p{
+    color: var(--text-color);
+}
+
+.list-img-text.item-group figcaption{
+    padding-top: 0;
+}
+
+@media screen and (min-width: 840px){
+    .list-img-text.item-group article {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .list-img-text.item-group article a figure {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    .list-img-text.item-group figcaption{
+        padding-top: 1rem;
+    }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="styles/nav-footer.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/developers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Icónes brutais -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png"> <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"> <!-- Favicon -->
+    <title>Quem são?</title>
+</head>
+<body id="body" onload="checkIfDarkMode()">
+    <!-- Navigation Bar -->
+    <header id="top" class="header">        
+        <!-- Logo -->
+        <a class="logo" href="index.html">PraCasa</a>
+        <!-- Menu Hamburger --> 
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <label class="hamb" for="side-menu" id="mob-button" onclick="mostrarMenu()"><span class="hamb-line"></span></label>
+        <nav class="nav">
+            <ul class="menu">
+                <li class="options"><a href="login.html" id="entrar"><i class="fa fa-user" aria-hidden="true"></i> Entrar</a></li>
+                <li class="options"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrinho</a> </li>
+                <li class="options"><a href="#" onclick="darkMode()" id="mode-toggler">☀️ Mode</a></li>
+                <!-- <li class="options"><a href=""><i class="fa fa-gear" aria-hidden="true"></i> Definições</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="search-bar" id="search-bar">
+        <form class="center" action="product-overview.html" method="get" onsubmit="transportValue()">
+            <div><input name="searchContent" id="searchBarForm" type="search" placeholder="Pesquisa..."></div>
+        </form>
+    </section>
+    
+    <nav class="categories" id="top-categories">
+        <table>
+            <tr>
+                <td><a href="#">Sala de Estar</a></td>
+                <td><a href="category-page-bathroom.html">Casa de Banho</a></td>
+                <td><a href="#">Cozinha</a></td>
+                <td><a href="#">Exterior</a></td>
+                <td><a href="#">Garagem</a></td>
+                <td><a href="#">Quarto</a></td>
+                <td><a href="#">Kids</a></td>
+            </tr>
+        </table>
+    </nav>
+    
+    <section class="top-button" id="top-button">
+        <div class="top-center">
+            <a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+    </section>
+
+    <div id="page-content">
+        <main>
+
+            <section class="boring-text">
+                <h1>Âmbito do Projeto</h1>
+                <div class="group">
+                    <p>Este projeto foi realizado com o intuito de demonstrar o que foi aprendido ao longo das aulas de 
+                        <b>Introdução à Programação Web</b> do curso de <i>Técnico de Programação de Sistemas de Informação</i>
+                        do <a href="https://www.estbarreiro.ips.pt/">Instituto Politécnico de Setúbal do Barreiro</a>.
+                    </p>
+                </div>
+                <h2>Objetivos</h2>
+                <div class="group">
+                    <p>O principal objetivo da nossa loja é dar a <u>qualquer</u> cliente o artigo <i>ideal</i>.
+                    </p>
+                    <p>E para isso, foi possível desenvolver este visual moderno, simples, intuitivo e multiplataforma.</p>
+                </div>
+            </section>
+            <section class="list-img-text">
+                <h1>Sobre os Alunos</h1>
+                <article>
+                    <a href="">
+                        <figure>
+                            <img src="images/students/Goncalo.jpg" alt="Mini-Cavalete">
+                            <figcaption>
+                                <span class="price">Gonçalo Lages</span>
+                                <span class="product-name">Supervisor</span>
+                                <!-- <span class="description">Madeira conífera e incluí um pincél</span> -->
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/students/Gui.jpeg" alt="Quadro Decorativo">
+                            <figcaption>
+                                <span class="price">Guilherme</span>
+                                <span class="product-name">Desginer</span>
+                                <!-- <span class="description">Denominado por RAÍZES 1, 2022</span> -->
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/students/Veigas.jpg" alt="Tapete">
+                            <figcaption>
+                                <span class="price">Diogo Veigas</span>
+                                <span class="product-name">Quem fez tudo</span>
+                                <!-- <span class="description">Tapete moderno com 160 X 230 cm</span> -->
+                            </figcaption>
+                        </figure>
+                    </a>
+                </article>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <section>
+            <h1 class="footer-title">Contactos</h1>
+            <article class="contacts">
+                <div>
+                    <p>Telefone:</p>
+                    <p>FAX:</p>
+                    <p>Email:</p>
+                </div>
+                <div>
+                    <p>+351 965 569 965</p>
+                    <p>+351 965 569 965</p>
+                    <p>atendimento@suporte.com</p>
+                </div>
+            </article>
+        
+        </section>
+        <section>
+            <h1 class="footer-title">Métodos de pagamento</h1>
+            <figure>
+                <img class="payment-methods" src="images/others/payment-method-icons.png" alt="">
+                <figcaption class="payment-methods-desc">Visa, MasterCard, Paypal...</figcaption>
+            </figure>
+        </section>
+    </footer>
+    <footer class="footer-mini">
+        <div class="conditions">
+            <a href="">Condições de uso</a>
+            <a href="">Aviso de privacidade</a>
+            <a href="">Área legal</a>
+            <a href="">Cookies</a>
+            <a href="">Publicidade baseada em interesses</a>
+        </div>
+        <div class="copyright">
+            <span>&copy; 2022-2022, <a href="developers.html">PraCasa Inc. e Diogo Veigas</a></span>
+        </div>
+    </footer>
+    <div id="page-mask"></div>
+
+    <script src="scripts/nav-bar-login.js"></script>
+    <script src="scripts/dynamic-filter.js"></script>
+</body>
+</html>

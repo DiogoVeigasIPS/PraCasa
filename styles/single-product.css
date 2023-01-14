@@ -17,15 +17,15 @@
     justify-content: center;
     align-items: center;
     padding: 3vw;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: var(--boxShadowColor);
     background-color: var(--white);
     margin-bottom: var(--title-margin);
 }
 
 .main-picture img{
     width: 100%;
-    height: 70%;
-    max-height: 50vh;
+/*     height: 70%;
+ */    max-height: 50vh;
     object-fit:contain;  
     border-radius: 1%;
 }
@@ -43,7 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: var(--boxShadowColor);
     cursor:pointer;
     max-height: 15vh;
     object-fit:contain;
@@ -67,10 +67,11 @@
 
 section.to-buy{
     padding: 3vw;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: var(--boxShadowColor);
     background-color: var(--white);
     margin-bottom: var(--title-margin);
     overflow-x: visible;
+    color: var(--text-color);
 }
 
 section.to-buy p{
@@ -100,8 +101,8 @@ section.to-buy p{
     color:rgb(0, 150, 0);
 }
 
-.add-cart a, .buy-now a,.add-cart a:visited, .buy-now a:visited{
-    color: var(--white);
+p.add-cart, p.buy-now{
+    color: var(--whiteNav);
 }
 
 .add-cart, .buy-now{
@@ -142,7 +143,7 @@ section.to-buy p{
 
 .product-details{
     padding: 3vw;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: var(--boxShadowColor);
     background-color: var(--white);
     overflow-x: visible;
     overflow-wrap: break-word;/* dá enter quando o texto já não cabe na mesma linha */
@@ -151,13 +152,13 @@ section.to-buy p{
 .second-price::before{
     content: "Desde ";
     font-weight: normal;
-    color: var(--text-color);
 }
 
 .second-price{
     font-size: calc(var(--title-text-size) - 1vw);
     font-weight: bold;
     margin-bottom: var(--title-margin);
+    color: var(--text-color);
 }
 
 .product-more-details p{
@@ -167,6 +168,10 @@ section.to-buy p{
 
 .product-more-details span.bold{
     font-weight: bold;
+}
+
+.product-details-title{
+    color: var(--text-color);
 }
 
 @media screen and (min-width: 570px) and (max-width: 1199px){
@@ -187,9 +192,9 @@ section.to-buy p{
     .side-pictures div{
         max-height: 24vh;
     }
-    main{
+    /* main{
         padding: 3vw;
-    }
+    } */
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1199px){
@@ -225,7 +230,7 @@ section.to-buy p{
     .single-product article{
         display: grid;
         grid-template-columns: 3fr auto;
-        gap:3vw;
+        gap:3rem;
     }
     
     .in-stock{
@@ -245,15 +250,13 @@ section.to-buy p{
         font-size: calc(var(--text-size) + var(--responsive-text-size));
     }
 
-    main{
+    /* main{
         padding-left: 10vw;
         padding-right: 10vw;
-    }
+    } */
 
     .product-details{
         grid-column: 1/3;
-        background-color: var(--background-color);
-        box-shadow: 0 0 0;
     }
 
     .side-pictures div{
@@ -268,7 +271,7 @@ section.to-buy p{
 @media screen and (min-width: 1600px){  
     .single-product article{
         display: grid;
-        gap:3vw;
+        gap:2rem;
     }
 
     .product-picture{
@@ -284,7 +287,9 @@ section.to-buy p{
     .product-details{
         grid-column: 2;
         order:2;
-        inline-size: 30rem;/* tamanho que o texto terá */
+		background-color: var(--background-color);
+        box-shadow: 0 0 0;
+        inline-size: 20rem;/* tamanho que o texto terá */
     }
 
     .main-picture img{
@@ -294,17 +299,20 @@ section.to-buy p{
     .side-pictures div{
         padding: 0;
     }
-
-    main{
-        padding-left: 12vw;
-        padding-right: 12vw;
-    }
 }
 
 /* Produtos Similares */
 
 #similar-products.list-img-text h1{
     margin-bottom: 0px;
+}
+
+#similar-products.list-img-text p{
+    color: var(--text-color);
+}
+
+#similar-products.list-img-text figcaption{
+    padding-top: 0;
 }
 
 @media screen and (min-width: 840px){
@@ -316,12 +324,15 @@ section.to-buy p{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
     }
+    #similar-products.list-img-text figcaption{
+        padding-top: 1rem;
+    }
 }
 
-/* Container */
+/* Containers */
 
 @media screen and (max-width: 1599px){
-    .main-picture, .side-pictures div, .to-buy, .product-details{
-        border: solid 0.5px rgb(233, 233, 233);
+    .result-box, .list-img-text, .filter-box{
+        border: solid 0.5px var(--border-color);
     }
 }

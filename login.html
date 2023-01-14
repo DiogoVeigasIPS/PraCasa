@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/nav-footer.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Icónes brutais -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png"> <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"> <!-- Favicon -->
+    <title>Introduzir Credenciais</title>
+</head>
+<body>
+    <nav class="center-logo">
+        <div class="logo"><a href="index.html">PraCasa</a></div>
+    </nav>
+
+    <div id="page-content">
+        <main>
+            <div class="center-vertically-horizontally">
+                <form action="index.html" class="login-form">
+                    <fieldset class="login-fieldset">
+                        <h1>Entrar</h1>
+                        <div class="login-menu">
+                            <div class="email-input">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="password-input">
+                                <label for="password">Palavra-Passe</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                        </div>
+
+                        <div class="center-continue">
+                            <input onclick="login()" type="submit" value="Continuar" class="continue">
+                        </div>
+
+                        <p class="acccept-terms">Ao continuar está a aceitar os <a href="">Termos de Condição</a> de Uso e Serviço.</p>
+                        <p class="need-help" onclick="mostrarDiv('need-help-plus', 'help-caret')"><i id="help-caret" class="fa fa-caret-right" aria-hidden="true"></i> Precisa de ajuda?</p>
+                        <div id="need-help-plus" class="need-help-plus">
+                            <p><a href="">Esqueceu-se da Palavra-passe?</a></p>
+                            <p><a href="">Outros problemas a entrar na conta?</a></p>
+                        </div>
+                    </fieldset>
+                    <fieldset class="register-fieldset">
+                        <legend>Novo à PraCasa?</legend>
+                        <button onclick="alert('Para criar uma conta, contacte o admininstrador')" 
+                            class="create-account-button" type="button">
+                            Cria já a tua conta</button>
+                    </fieldset>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer-mini">
+            <div class="conditions">
+                <a href="">Condições de uso</a>
+                <a href="">Aviso de privacidade</a>
+                <a href="">Ajuda</a>
+            </div>
+            <div class="copyright">
+                <span>&copy; 2022-2022, <a href="developers.html">PraCasa Inc. e Diogo Veigas</a></span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="scripts/login.js"></script>
+    <script src="scripts/nav-bar-login.js"></script>
+</body>
+</html>

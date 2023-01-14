@@ -13,20 +13,20 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"> <!-- Favicon -->
     <title>Produto</title>
 </head>
-<body>
-
+<body id="body" onload="checkIfDarkMode(); loadValue();">
     <!-- Navigation Bar -->
-    <header id="top" class="header">     
+    <header id="top" class="header">        
         <!-- Logo -->
         <a class="logo" href="index.html">PraCasa</a>
         <!-- Menu Hamburger --> 
         <input class="side-menu" type="checkbox" id="side-menu">
-        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <label class="hamb" for="side-menu" id="mob-button" onclick="mostrarMenu()"><span class="hamb-line"></span></label>
         <nav class="nav">
             <ul class="menu">
-                <li class="options"><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Entrar</a></li>
+                <li class="options"><a href="login.html" id="entrar"><i class="fa fa-user" aria-hidden="true"></i> Entrar</a></li>
                 <li class="options"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrinho</a> </li>
-                <li class="options"><a href="#"><i class="fa fa-gear" aria-hidden="true"></i> Definições</a></li>
+                <li class="options"><a href="#" onclick="darkMode()" id="mode-toggler">☀️ Mode</a></li>
+                <!-- <li class="options"><a href=""><i class="fa fa-gear" aria-hidden="true"></i> Definições</a></li> -->
             </ul>
         </nav>
     </header>
@@ -34,15 +34,15 @@
     <!-- Search Bar -->
     <div class="search-bar">
         <form class="center" action="#" method="get">
-            <div><input name="searchContent" type="search" placeholder="Pesquisa..."></div>
+            <div><input name="searchContent" type="search" id="searchBar" onkeyup="searchProducts()"  placeholder="Pesquisa..."></div>
         </form>
     </div>
 
-    <nav class="categories">
+    <nav class="categories" id="top-categories">
         <table>
             <tr>
                 <td><a href="#">Sala de Estar</a></td>
-                <td><a href="#">Casa de Banho</a></td>
+                <td><a href="category-page-bathroom.html">Casa de Banho</a></td>
                 <td><a href="#">Cozinha</a></td>
                 <td><a href="#">Exterior</a></td>
                 <td><a href="#">Garagem</a></td>
@@ -52,254 +52,794 @@
         </table>
     </nav>
 
-
-    <main> 
-        <article class="filter-results">
-            <label for="show-filters" class="mob-only">Filtros <i class="fa fa-caret-down" aria-hidden="true"></i></label>
-            <input type="checkbox" id="show-filters" class="show-filters">
-            <section class="filter-box">
-                <article>
-                    <form action="#" method="get" class="filter-form">
-                        <div class="shipping">
-                            <h1>Portes</h1>
-                            <section>
-                                <div>
-                                    <input type="checkbox" name="shipping" id="free">
-                                    <label for="free">Portes Grátis</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="shipping" id="paid" checked>
-                                    <label for="paid">Portes Pagos</label>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="eco">
-                            <h1>ECO</h1>
-                            <section>
-                                <div>
-                                    <input type="checkbox" name="eco" id="eco">
-                                    <label for="eco">Amigo do Ambiente</label>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="rating">
-                            <h1>Classificação</h1>
-                            <section>
-                                <div>
-                                    <label for="rating"><span class="star">&#11088;</span></i></label>
-                                    <select name="rating" id="rating" class="select-rating">
-                                        <option value="1">1+</option>
-                                        <option value="2">2+</option>
-                                        <option value="3" selected>3+</option>
-                                        <option value="4">4+</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="brand">
-                            <h1>Marcas</h1>
-                            <section>
-                                <div>
-                                    <input type="checkbox" name="brand" id="HOMCOM"><!-- mudar o id consoante o nome -->
-                                    <label for="HOMCOM">HOMCOM</label>
-                                </div>      <!-- o mesmo aplica-se ao for -->
-                                <div>
-                                    <input type="checkbox" name="brand" id="Sumatra">
-                                    <label for="Sumatra">Sumatra</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="brand" id="Cannock">
-                                    <label for="Cannock">Cannock</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="brand" id="OSLO">
-                                    <label for="OSLO">OSLO</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="brand" id="Cheverny">
-                                    <label for="Cheverny">Cheverny</label>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="price-range">
-                            <h1>Preços</h1>
-                            <section>
-                                <div>
-                                    <input type="checkbox" name="price-range" id="100">
-                                    <label for="100">0€-100€</label>
-                                </div>          
-                                <div>
-                                    <input type="checkbox" name="price-range" id="200">
-                                    <label for="200">100€-200€</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="price-range" id="500">
-                                    <label for="500">200€-500€</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="price-range" id="1000">
-                                    <label for="1000">500€-1000€</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="price-range" id="2000">
-                                    <label for="2000">1000€-2000€</label>
-                                </div>
-                            </section>
-                        </div>
-                    </form>
-                </article>
-            </section>
-
-            <section class="result-box">
-                <h1>Resultados</h1>
-                <article class="results">
-                    <section class="result-item">
-                        <a href="">
-                            <div class="result-item-img">
-                                <img src="images/products/mesajantar.png" alt="">
-                            </div>
-                            <div class="result-item-info">
-                                <p class="retult-item-title">Mesa de Jantar OSLO</p>
-                                <p class="retult-item-price">89.99€</p>
-                                <p class="retult-item-description">Faz parte de uma coleção de Natal bastante famosa pelo seu tamanho</p>
-                                <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
-                            </div>
-                        </a>
-                    </section>
-                    <section class="result-item">
-                        <a href="">
-                            <div class="result-item-img">
-                                <img src="images/products/mesa.png" alt="Móvel de Sala">
-                            </div>
-                            <div class="result-item-info">
-                                <p class="retult-item-title">Mesa para Sala de Estar</p>
-                                <p class="retult-item-price">11,99€</p>
-                                <p class="retult-item-description">Madeira de acácia maciça</p>
-                                <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
-                            </div>
-                        </a>
-                    </section>
-                    <section class="result-item">
-                        <a href="">
-                            <div class="result-item-img">
-                                <img src="images/products/mesa5.png" alt="Mesa Sumatra">
-                            </div>
-                            <div class="result-item-info">
-                                <p class="retult-item-title">Mesa Sumatra</p>
-                                <p class="retult-item-price">70€</p>
-                                <p class="retult-item-description">Mesa quadrada preta 78x78x72cm 8,5kg</p>
-                                <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
-                            </div>
-                        </a>
-                    </section>
-                    <section class="result-item">
-                        <a href="">
-                            <div class="result-item-img">
-                                <img src="images/products/mesa4.png" alt="Cadeirão reclinável">
-                            </div>
-                            <div class="result-item-info">
-                                <p class="retult-item-title">Mesa de bar Cannock</p>
-                                <p class="retult-item-price">80€</p>
-                                <p class="retult-item-description">Madeira industrial leve, Sonoma de carvalho</p>
-                                <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
-                            </div>
-                        </a>
-                    </section>
-                    <section class="result-item">
-                        <a href="">
-                            <div class="result-item-img">
-                                <img src="images/products/mesa2.png" alt="Secretária"> 
-                            </div>
-                            <div class="result-item-info">
-                                <p class="retult-item-title">Secretária</p>
-                                <p class="retult-item-price">120€</p>
-                                <p class="retult-item-description">Secretária VINSETTO Preto</p>
-                                <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
-                            </div>
-                        </a>
-                    </section>
-                    <section class="result-item">
-                        <a href="">
-                            <div class="result-item-img">
-                                <img src="images/products/mesa1.png" alt="Mesa Redonda">
-                            </div>
-                            <div class="result-item-info">
-                                <p class="retult-item-title">Mesa Redonda</p>
-                                <p class="retult-item-price">600€</p>
-                                <p class="retult-item-description">Mesa extensível redonda Oqui chapa de carvalho e pernas madeira maciça.</p>
-                                <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
-                            </div>
-                        </a>
-                    </section>
-                    <section class="result-item">
-                        <a href="">
-                            <div class="result-item-img">
-                                <img src="images/products/mesa3.png" alt="Secretária">
-                            </div>
-                            <div class="result-item-info">
-                                <p class="retult-item-title">Secretária de Quarto</p>
-                                <p class="retult-item-price">70€</p>
-                                <p class="retult-item-description">Secretária 100x50x76 cm contraplacado cinzento brilhante</p>
-                                <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
-                            </div>
-                        </a>
-                    </section>
-                </article>
-            </section>
-        </article>
-
-        <section id="similar-products" class="list-img-text">
-            <h1>Produtos Similares</h1>
-            <p>Patrocinado</p>
-            <article>
-                <a href="">
-                    <figure>
-                        <img src="images/products/secretaria.png" alt="Secretária">
-                        <figcaption>
-                            <span class="price">119,99€</span>
-                            <span class="product-name">Secretária K248</span>
-                            <span class="description">4 GAVETAS 75X100X50CM BRANCA</span>
-                        </figcaption>
-                    </figure>
-                </a>
-                <a href="">
-                    <figure>
-                        <img src="images/products/secretaria1.png" alt="Secretária">
-                        <figcaption>
-                            <span class="price">119,99€</span>
-                            <span class="product-name">ALEX</span>
-                            <span class="description">Secretária, branco, 100x48 cm</span>
-                        </figcaption>
-                    </figure>
-                </a>
-                <a href="">
-                    <figure>
-                        <img src="images/products/secretaria2.png" alt="Secretária">
-                        <figcaption>
-                            <span class="price">169,99€</span>
-                            <span class="product-name">MALM</span>
-                            <span class="description">Secretária, pret-cast, 140x65 cm</span>
-                        </figcaption>
-                    </figure>
-                </a>
-                <a href="">
-                    <figure>
-                        <img src="images/products/secretaria3.png" alt="Secretária">
-                        <figcaption>
-                            <span class="price">100€</span>
-                            <span class="product-name">Mesa de computador Canton</span>
-                            <span class="description">Madeira industrial escura</span>
-                        </figcaption>
-                    </figure>
-                </a>
-            </article>
-        </section>
-    </main>
-    
-    <section class="center">
-        <a href="#top">Voltar ao início</a>
+    <section class="top-button">
+        <div class="top-center">
+            <a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
     </section>
+
+    <div id="page-content">
+        <main> 
+            <article class="filter-results">
+                <label for="show-filters" class="mob-only">Filtros <i class="fa fa-caret-down" aria-hidden="true"></i></label>
+                <input type="checkbox" id="show-filters" class="show-filters">
+                <section class="filter-box">
+                    <article>
+                        <form action="#" method="get" class="filter-form">
+                            <div class="shipping">
+                                <h1>Portes</h1>
+                                <section>
+                                    <div>
+                                        <input onclick="filterShipping('free')" type="radio" name="shipping" id="free">
+                                        <label for="free">Portes Grátis</label>
+                                    </div>
+                                    <div>
+                                        <input onclick="filterShipping('paid')" type="radio" name="shipping" id="paid" checked="checked">
+                                        <label for="paid">Portes Pagos</label>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="eco">
+                                <h1>ECO</h1>
+                                <section>
+                                    <div>
+                                        <input type="checkbox" name="eco" id="eco">
+                                        <label for="eco">Amigo do Ambiente</label>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="rating">
+                                <h1>Classificação</h1>
+                                <section>
+                                    <div>
+                                        <label for="rating"><span class="star">&#11088;</span></i></label>
+                                        <select name="rating" id="rating" class="select-rating">
+                                            <option value="1">1+</option>
+                                            <option value="2">2+</option>
+                                            <option value="3" selected>3+</option>
+                                            <option value="4">4+</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="brand">
+                                <h1>Marcas</h1>
+                                <section>
+                                    <div>
+                                        <input type="checkbox" name="brand" id="HOMCOM">
+                                        <label for="HOMCOM">HOMCOM</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="brand" id="Sumatra">
+                                        <label for="Sumatra">Sumatra</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="brand" id="Cannock">
+                                        <label for="Cannock">Cannock</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="brand" id="OSLO">
+                                        <label for="OSLO">OSLO</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="brand" id="Cheverny">
+                                        <label for="Cheverny">Cheverny</label>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="price-range">
+                                <h1>Preços</h1>
+                                <section>
+                                    <div>
+                                        <input onclick="filterPrice(0, 5000)" type="radio" name="price-range" id="all-prices">
+                                        <label for="all-prices">Todos</label>
+                                    </div>          
+                                    <div>
+                                        <input onclick="filterPrice(0, 100)" type="radio" name="price-range" id="100">
+                                        <label for="100">0€-100€</label>
+                                    </div>          
+                                    <div>
+                                        <input onclick="filterPrice(100, 200)" type="radio" name="price-range" id="200">
+                                        <label for="200">100€-200€</label>
+                                    </div>
+                                    <div>
+                                        <input onclick="filterPrice(200, 500)" type="radio" name="price-range" id="500">
+                                        <label for="500">200€-500€</label>
+                                    </div>
+                                    <div>
+                                        <input onclick="filterPrice(500, 1000)" type="radio" name="price-range" id="1000">
+                                        <label for="1000">500€-1000€</label>
+                                    </div>
+                                    <div>
+                                        <input onclick="filterPrice(1000, 2000)" type="radio" name="price-range" id="2000">
+                                        <label for="2000">1000€-2000€</label>
+                                    </div>
+                                </section>
+                            </div>
+                        </form>
+                    </article>
+                </section>
+
+                <section class="result-box">
+                    <h1>Resultados</h1>
+                    <article class="results">
+                        <section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesajantar.png" alt="">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa de Jantar OSLO</p>
+                                    <p class="retult-item-price">89.99€</p>
+                                    <p class="retult-item-description">Faz parte de uma coleção de Natal bastante famosa pelo seu tamanho</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa.png" alt="Móvel de Sala">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa para Sala de Estar</p>
+                                    <p class="retult-item-price">11,99€</p>
+                                    <p class="retult-item-description">Madeira de acácia maciça</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa5.png" alt="Mesa Sumatra">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa Sumatra</p>
+                                    <p class="retult-item-price">70€</p>
+                                    <p class="retult-item-description">Mesa quadrada preta 78x78x72cm 8,5kg</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa4.png" alt="Cadeirão reclinável">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa de bar Cannock</p>
+                                    <p class="retult-item-price">80€</p>
+                                    <p class="retult-item-description">Madeira industrial leve, Sonoma de carvalho</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa2.png" alt="Secretária"> 
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Secretária</p>
+                                    <p class="retult-item-price">120€</p>
+                                    <p class="retult-item-description">Secretária VINSETTO Preto</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa1.png" alt="Mesa Redonda">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa Redonda</p>
+                                    <p class="retult-item-price">600€</p>
+                                    <p class="retult-item-description">Mesa extensível redonda Oqui chapa de carvalho e pernas madeira maciça.</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa3.png" alt="Secretária">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Secretária de Quarto</p>
+                                    <p class="retult-item-price">70€</p>
+                                    <p class="retult-item-description">Secretária 100x50x76 cm contraplacado cinzento brilhante</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa6.png" alt="Mesa">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa de Jantar</p>
+                                    <p class="retult-item-price">750€</p>
+                                    <p class="retult-item-description">Chapa de carvalho velatura castanha<br> 220x100 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa7.png" alt="Mesa">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa de Refeição</p>
+                                    <p class="retult-item-price">600€</p>
+                                    <p class="retult-item-description">Material: acácia<br> 235x100 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa8.png" alt="Suporte para Portátil">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Suporte para Portátil</p>
+                                    <p class="retult-item-price">30€</p>
+                                    <p class="retult-item-description">Material: antracite</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa9.png" alt="Mesa Dobrável">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa Dobrável</p>
+                                    <p class="retult-item-price">100€</p>
+                                    <p class="retult-item-description">Material: pinho<br> 80x30-91 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/mesa0.png" alt="Mesa">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Mesa Alta</p>
+                                    <p class="retult-item-price">50€</p>
+                                    <p class="retult-item-description">Cor: preto<br> 67x67 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario0.png" alt="Armário">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Armário Maestro com 2 Portas</p>
+                                    <p class="retult-item-price">400€</p>
+                                    <p class="retult-item-description">Material: carvalho</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario5.png" alt="Armário">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Armário JOM JUAREZ</p>
+                                    <p class="retult-item-price">200€</p>
+                                    <p class="retult-item-description">Material: carvalho</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario6.png" alt="Armário">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Armário de Metal</p>
+                                    <p class="retult-item-price">150€</p>
+                                    <p class="retult-item-description">Cor: cinza<br>75x33x110cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario7.png" alt="Roupeiro">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Roupeiro de portas de correr MATADOR</p>
+                                    <p class="retult-item-price">270€</p>
+                                    <p class="retult-item-description">Cor: branco</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario8.png" alt="Armário"> 
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Armário UTICA 106</p>
+                                    <p class="retult-item-price">220€</p>
+                                    <p class="retult-item-description">Material: carvalho e antracite</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario9.png" alt="Sapateira">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Sapateira VIDAXL</p>
+                                    <p class="retult-item-price">65€</p>
+                                    <p class="retult-item-description">Material: aglomerado de madeira<br>Cor: cinzento </p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario10.png" alt="Roupeiro">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Roupeiro Narago</p>
+                                    <p class="retult-item-price">700€</p>
+                                    <p class="retult-item-description">Material: carvalho<br>Cor: branco</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario11.png" alt="Armários">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Armários em resina reciclada DETROIT</p>
+                                    <p class="retult-item-price">180€</p>
+                                    <p class="retult-item-description">Cor: preto</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario12.png" alt="Armário de Parede">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Armário de Parede com Espelho</p>
+                                    <p class="retult-item-price">80€</p>
+                                    <p class="retult-item-description">Cor: preto</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario13.png" alt="Estante">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Estante</p>
+                                    <p class="retult-item-price">320€</p>
+                                    <p class="retult-item-description">Largura: 102cm<br>Altura: 177,5cm<br> Profundidade: 23cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario14.png" alt="Armário">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Armário Mini Ratan</p>
+                                    <p class="retult-item-price">90€</p>
+                                    <p class="retult-item-description">Cor: preto</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/armario15.png" alt="Armário">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Armário com 2 portas</p>
+                                    <p class="retult-item-price">100€</p>
+                                    <p class="retult-item-description">Cor: cinza<br>70x116 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira0.png" alt="Cadeira">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira Metálica</p>
+                                    <p class="retult-item-price">35€</p>
+                                    <p class="retult-item-description">Material: aço de estilo industrial<br>Cores: preto e branco</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira5.png" alt="Cadeira Escritório">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira Escritório</p>
+                                    <p class="retult-item-price">40€</p>
+                                    <p class="retult-item-description">Cadeira de escritório com rodas.</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira6.png" alt="Cadeira de Escritório">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira de Escritório</p>
+                                    <p class="retult-item-price">75€</p>
+                                    <p class="retult-item-description">Cadeira de Escritório com Braços Estofada<br>Cor: preta</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira7.png" alt="Cadeira de Jantar">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira de Jantar</p>
+                                    <p class="retult-item-price">80€</p>
+                                    <p class="retult-item-description">Cadeira de Jantar de Polipropileno com Apoio de Braços</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira8.png" alt="Cadeira Modelo"> 
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira Modelo</p>
+                                    <p class="retult-item-price">60€</p>
+                                    <p class="retult-item-description">Cadeira com espuma de alta densidade injetada, revestida a tecido ou pele sintética</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira9.png" alt="Cadeira de Jantar">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira de Jantar</p>
+                                    <p class="retult-item-price">125€</p>
+                                    <p class="retult-item-description">Material: tecido<br>Cor: cinzento-acastanhado</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira10.png" alt="Cadeira de Jantar">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira de Jantar</p>
+                                    <p class="retult-item-price">110€</p>
+                                    <p class="retult-item-description">Material: Couro Artificial<br>Cor: creme e branco</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira11.png" alt="Cadeira de Jantar">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira de Jantar VIDAXL</p>
+                                    <p class="retult-item-price">80€</p>
+                                    <p class="retult-item-description">Material: tecido<br>Cor: bege</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira12.png" alt="Cadeira de Jantar">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira de Jantar VIDAXL</p>
+                                    <p class="retult-item-price">90€</p>
+                                    <p class="retult-item-description">Material: veludo <br>Cor: vermelho </p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira13.png" alt="Cadeira Gaming">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira Raven</p>
+                                    <p class="retult-item-price">190€</p>
+                                    <p class="retult-item-description">Cor: Amarelo esverdeado</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira14.png" alt="Cadeira">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira Ceres</p>
+                                    <p class="retult-item-price">120€</p>
+                                    <p class="retult-item-description">Cor: preto</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/cadeira15.png" alt="Cadeira Gaming">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Cadeira Gaming</p>
+                                    <p class="retult-item-price">250€</p>
+                                    <p class="retult-item-description">Design: Dragon Ball<br>Cor: laranja</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/arvore.png" alt="Árvore de Natal">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Árvore de Natal Decorativo</p>
+                                    <p class="retult-item-price">15€</p>
+                                    <p class="retult-item-description">10 peças com flor artificial</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/arvore1.png" alt="Árvore de Natal">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Árvore de Natal</p>
+                                    <p class="retult-item-price">45€</p>
+                                    <p class="retult-item-description">Ancelle</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/arvore2.png" alt="Árvore de Natal">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Árvore de Natal artificial</p>
+                                    <p class="retult-item-price">70€</p>
+                                    <p class="retult-item-description">220 cm<br>Cor: verde abeto</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                        <section class="result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/arvore3.png" alt="Árvore de Natal">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Árvore de Natal Artificial</p>
+                                    <p class="retult-item-price">85€</p>
+                                    <p class="retult-item-description">210cm<br>Ignífugo com 616 Ramos Folhas de PVC Base Dobrável<br>Suporte Metálico Verde</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/espelho0.png" alt="Espelho WC">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Espelho WC</p>
+                                    <p class="retult-item-price">24.99€</p>
+                                    <p class="retult-item-description">Cor: Branco e Castanho</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/espelho2.png" alt="Espelho WC">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Espelho para casa de banho</p>
+                                    <p class="retult-item-price">140€</p>
+                                    <p class="retult-item-description">Formato retangular<br> 90cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/espelho3.png" alt="Espelho WC">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Espelho de casa de banho com 3 prateleiras</p>
+                                    <p class="retult-item-price">65€</p>
+                                    <p class="retult-item-description">Cor: Branco<br>90x45 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/espelho4.png" alt="Espelho WC">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Espelho de Casa de Banho com Luzes LED</p>
+                                    <p class="retult-item-price">55€</p>
+                                    <p class="retult-item-description">40x70 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/espelho5.png" alt="Espelho WC">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Espelho de Casa de Banho com Sensor Tátil</p>
+                                    <p class="retult-item-price">95€</p>
+                                    <p class="retult-item-description">50x60 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/espelho6.png" alt="Espelho WC">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Espelho de casa de banho com 3 prateleiras</p>
+                                    <p class="retult-item-price">65€</p>
+                                    <p class="retult-item-description">Cor: Preto<br>60x45 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/espelho7.png" alt="Espelho WC">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Espelho Retangular</p>
+                                    <p class="retult-item-price">210€</p>
+                                    <p class="retult-item-description">Material: Madeira Reciclada<br>Cor: Castanho</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+						<section class="result-item" id="first-result-item">
+                            <a href="">
+                                <div class="result-item-img">
+                                    <img src="images/products/espelho8.png" alt="Espelho WC">
+                                </div>
+                                <div class="result-item-info">
+                                    <p class="retult-item-title">Espelho de Casa de Banho com Luzes LED</p>
+                                    <p class="retult-item-price">75€</p>
+                                    <p class="retult-item-description">50x100 cm</p>
+                                    <p class="retult-item-stock">Em Stock <i class="fa fa-check" aria-hidden="true"></i></p>
+                                </div>
+                            </a>
+                        </section>
+                    </article>
+                </section>
+            </article>
+
+            <section id="similar-products" class="list-img-text">
+                <h1>Produtos Similares</h1>
+                <p>Patrocinado</p>
+                <article>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/yoda.png" alt="Peluche">
+                            <figcaption>
+                                <span class="price">40€</span>
+                                <span class="product-name">Peluche de Natal</span>
+                                <span class="description">Yoda™(Star Wars)</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/secretaria1.png" alt="Secretária">
+                            <figcaption>
+                                <span class="price">119,99€</span>
+                                <span class="product-name">ALEX</span>
+                                <span class="description">Secretária, branco, 100x48 cm</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/secretaria2.png" alt="Secretária">
+                            <figcaption>
+                                <span class="price">169,99€</span>
+                                <span class="product-name">MALM</span>
+                                <span class="description">Secretária, pret-cast, 140x65 cm</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/cadeira2.png" alt="Cadeira Gaming">
+                            <figcaption>
+                                <span class="price">80€</span>
+                                <span class="product-name">Cadeira Pro</span>
+                                <span class="description">Cadeira Gaming Reclinável</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </article>
+            </section>
+        </main>
+    </div>
 
     <footer class="footer">
         <section>
@@ -322,7 +862,7 @@
             <h1 class="footer-title">Métodos de pagamento</h1>
             <figure>
                 <img class="payment-methods" src="images/others/payment-method-icons.png" alt="">
-                <figcaption>Visa, MasterCard, Paypal...</figcaption>
+                <figcaption class="payment-methods-desc">Visa, MasterCard, Paypal...</figcaption>
             </figure>
         </section>
     </footer>
@@ -335,8 +875,12 @@
             <a href="">Publicidade baseada em interesses</a>
         </div>
         <div class="copyright">
-            <span>&copy; 2022-2022, PraCasa Inc. e Diogo Veigas</span>
+            <span>&copy; 2022-2022, <a href="developers.html">PraCasa Inc. e Diogo Veigas</a></span>
         </div>
     </footer>
+    <div id="page-mask"></div>
+    
+    <script type="text/javascript" src="scripts/dynamic-filter.js"></script>
+	<script type="text/javascript" src="scripts/nav-bar-login.js"></script>
 </body>
 </html>

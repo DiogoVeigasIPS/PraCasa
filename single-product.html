@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"> <!-- Favicon -->
     <title>Produto</title>
 </head>
-<body>
+<body onload="checkIfDarkMode()">
 
     <!-- Navigation Bar -->
     <header id="top" class="header">        
@@ -24,25 +24,26 @@
         <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
         <nav class="nav">
             <ul class="menu">
-                <li class="options"><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Entrar</a></li>
+                <li class="options"><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i> Entrar</a></li>
                 <li class="options"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrinho</a> </li>
-                <li class="options"><a href="#"><i class="fa fa-gear" aria-hidden="true"></i> Definições</a></li>
+                <li class="options"><a href="#" onclick="darkMode()" id="mode-toggler">☀️ Mode</a></li>
+                <!-- <li class="options"><a href="#"><i class="fa fa-gear" aria-hidden="true"></i> Definições</a></li> -->
             </ul>
         </nav>
     </header>
 
     <!-- Search Bar -->
-    <section class="search-bar">
-        <form class="center" action="#" method="get">
-            <div><input name="searchContent" type="search" placeholder="Pesquisa..."></div>
+    <section class="search-bar" id="search-bar">
+        <form class="center" action="product-overview.html" method="get" onsubmit="transportValue()">
+            <div><input name="searchContent" id="searchBarForm" type="search" placeholder="Pesquisa..."></div>
         </form>
     </section>
 
-    <nav class="categories">
+    <nav class="categories" id="top-categories">
         <table>
             <tr>
                 <td><a href="#">Sala de Estar</a></td>
-                <td><a href="#">Casa de Banho</a></td>
+                <td><a href="category-page-bathroom.html">Casa de Banho</a></td>
                 <td><a href="#">Cozinha</a></td>
                 <td><a href="#">Exterior</a></td>
                 <td><a href="#">Garagem</a></td>
@@ -52,112 +53,117 @@
         </table>
     </nav>
 
-
-    <main>
-        <section id="single-product" class="single-product">
-            <h1>Matraquilhos</h1>
-            <article>
-                <section class="product-picture">
-                    <article class="picture-combo">
-                        <figure class="main-picture">
-                            <img src="images/products/mesadejogos.png" alt="">
-                        </figure>
-                        <figure class="side-pictures">
-                            <div>
-                                <img src="images/products/mesadejogos.png" alt="">
-                            </div>
-                            <div>
-                                <img src="images/products/mesadejogos.png" alt="">
-                            </div>
-                            <div>
-                                <img src="images/products/mesadejogos.png" alt="">
-                            </div>
-                            <div>
-                                <img src="images/products/mesadejogos.png" alt="">
-                            </div>
-                        </figure>
-                    </article>
-                </section>
-                <section class="to-buy">
-                    <p class="main-price">3000€</p>
-                    <p class="free-delivery">Entrega grátis<br>
-                        <span class="delivery-condition">Em compras superiores a 2.000€</span>
-                    </p>
-                    <p class="in-stock">Em Stock</p>
-                    <div class="center">
-                        <p class="add-cart"><a href="">Adicionar <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p>
-                        <p class="buy-now"><a href="">Comprar Já!</a></p>
-                    </div>
-                </section>
-                <section class="product-details">
-                    <h2 class="product-details-title">Detalhes</h2>
-                    <p class="second-price">3000€</p>
-                    <div class="product-more-details">
-                        <div>
-                            <p><span class="bold">Marca:</span> vidaXL</p>
-                            <p><span class="bold">Altura:</span> 140 cm</p>
-                            <p><span class="bold">Largura:</span> 74,5 cm</p>
-                            <p><span class="bold">Peso:</span> 60 kg</p>
-                            <p><span class="bold">Cor:</span> Preto</p>
-                        </div>
-                    </div>
-                </section>
-            </article>
-        </section>
-
-
-
-        <section id="similar-products" class="list-img-text">
-            <h1>Produtos Similares</h1>
-            <p>Patrocinado</p>
-            <article>
-                <a href="">
-                    <figure>
-                        <img src="images/products/hoquei.png" alt="Móvel de Sala">
-                        <figcaption>
-                            <span class="price">169,99€</span>
-                            <span class="product-name">Mesa de Hóquei</span>
-                            <span class="description">Air Hockey jogo de mesa</span>
-                        </figcaption>
-                    </figure>
-                </a>
-                <a href="">
-                    <figure>
-                        <img src="images/products/xadrez.png" alt="Mesa de Xadrez">
-                        <figcaption>
-                            <span class="price">150€</span>
-                            <span class="product-name">Mesa de Xadrez</span>
-                            <span class="description">Mesa De Madeira Dobrável</span>
-                        </figcaption>
-                    </figure>
-                </a>
-                <a href="">
-                    <figure>
-                        <img src="images/products/matraquilhos.png" alt="Matraquilhos">
-                        <figcaption>
-                            <span class="price">150€</span>
-                            <span class="product-name">Matraquilhos</span>
-                            <span class="description">4 pernas feita de madeira natural de alta qualidade</span>
-                        </figcaption>
-                    </figure>
-                </a>
-                <a href="">
-                    <figure>
-                        <img src="images/products/mesadesnooker.png" alt="Mesa de Snooker">
-                        <figcaption>
-                            <span class="price">750€</span>
-                            <span class="product-name">Mesa de Bilhar DEVESSPORT</span>
-                            <span class="description">Mesa de bilhar semi profissional Cortés</span>
-                        </figcaption>
-                    </figure>
-                </a>
-            </article>
-        </section>
-    </main>
-    
-    <section class="center">
-        <a href="#top">Voltar ao início</a>
+    <section class="top-button">
+        <div class="top-center">
+            <a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
     </section>
+
+    <div id="page-content">
+        <main>
+            <section id="single-product" class="single-product">
+                <h1 id="product-name">Cadeira Einara</h1>
+                <article class="single-product-abouts">
+                    <section class="product-picture">
+                        <article class="picture-combo">
+                            <figure class="main-picture">
+                                <img id="big-picture" src="images/products/cadeirafrente.png" alt="Cadeira de escritório">
+                            </figure>
+                            <figure class="side-pictures">
+                                <div>
+                                    <img onmouseover="mudarImagem('cadeiranice.png')" onmouseout="mudarImagem('cadeirafrente.png')" src="images/products/cadeiranice.png" alt="">
+                                </div>
+                                <div>
+                                    <img onmouseover="mudarImagem('cadeiralado.png')" onmouseout="mudarImagem('cadeirafrente.png')" src="images/products/cadeiralado.png" alt="">
+                                </div>
+                                <div>
+                                    <img onmouseover="mudarImagem('cadeiratras.png')" onmouseout="mudarImagem('cadeirafrente.png')" src="images/products/cadeiratras.png" alt="">
+                                </div>
+                                <div>
+                                    <img onmouseover="mudarImagem('cadeiratras1.png')" onmouseout="mudarImagem('cadeirafrente.png')" src="images/products/cadeiratras1.png" alt="">
+                                </div>
+                            </figure>
+                        </article>
+                    </section>
+                    <section class="to-buy">
+                        <p id="product-price" class="main-price">170€</p>
+                        <p class="free-delivery">Entrega grátis<br>
+                            <span class="delivery-condition">Em compras superiores a 2.000€</span>
+                        </p>
+                        <p class="in-stock">Em Stock</p>
+                        <div class="center">
+                            <p class="add-cart" onclick="addToCar()">Adicionar <i class="fa fa-shopping-cart" aria-hidden="true"></i></p>
+                            <p class="buy-now">Comprar Já!</p>
+                        </div>
+                    </section>
+                    <section class="product-details">
+                        <h2 class="product-details-title">Detalhes</h2>
+                        <p class="second-price">170€</p>
+                        <div class="product-more-details">
+                            <div>
+                                <p><span class="bold">Marca:</span> Kave Home</p>
+                                <p><span class="bold">Altura:</span> 77-87 cm</p>
+                                <p><span class="bold">Largura:</span> 64 cm</p>
+                                <p><span class="bold">Peso:</span> 9,7 Kg</p>
+                                <p><span class="bold">Cor:</span> Cinzento</p>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+            </section>
+
+
+
+            <section id="similar-products" class="list-img-text">
+                <h1>Produtos Similares</h1>
+                <p>Patrocinado</p>
+                <article>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/cadeira1.png" alt="Cadeira de Sala">
+                            <figcaption>
+                                <span class="price">200€</span>
+                                <span class="product-name">Romane</span>
+                                <span class="description">Cadeira Romane madeira de faia acabamento natural e chapa de freixo e ratã</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/cadeira2.png" alt="Cadeira Gaming">
+                            <figcaption>
+                                <span class="price">80€</span>
+                                <span class="product-name">Cadeira Pro</span>
+                                <span class="description">Cadeira Gaming Reclinável</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/cadeira3.png" alt="Cadeira de Sala">
+                            <figcaption>
+                                <span class="price">20€</span>
+                                <span class="product-name">BERGMUND</span>
+                                <span class="description">Capa p/cadeira, Gunnared cinza</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <a href="">
+                        <figure>
+                            <img src="images/products/cadeira4.png" alt="Cadeira De Escritório">
+                            <figcaption>
+                                <span class="price">65€</span>
+                                <span class="product-name">Cadeira De Escritório Estofada</span>
+                                <span class="description">Largura - 48 cm<br>
+                                                            Profundidade - 54 cm<br>
+                                                            Ajustável em Altura - 70-80 cm</span>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </article>
+            </section>
+        </main>
+    </div>
 
     <footer class="footer">
         <section>
@@ -180,7 +186,7 @@
             <h1 class="footer-title">Métodos de pagamento</h1>
             <figure>
                 <img class="payment-methods" src="images/others/payment-method-icons.png" alt="">
-                <figcaption>Visa, MasterCard, Paypal...</figcaption>
+                <figcaption class="payment-methods-desc">Visa, MasterCard, Paypal...</figcaption>
             </figure>
         </section>
     </footer>
@@ -193,8 +199,14 @@
             <a href="">Publicidade baseada em interesses</a>
         </div>
         <div class="copyright">
-            <span>&copy; 2022-2022, PraCasa Inc. e Diogo Veigas</span>
+            <span>&copy; 2022-2022, <a href="developers.html">PraCasa Inc. e Diogo Veigas</a></span>
         </div>
     </footer>
+    <div id="page-mask"></div>
+
+    <script src="scripts/image-preview.js"></script>
+    <script src="scripts/add-to-cart.js"></script>
+    <script src="scripts/nav-bar-login.js"></script>
+    <script src="scripts/dynamic-filter.js"></script>
 </body>
 </html>
