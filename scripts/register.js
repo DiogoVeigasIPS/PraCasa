@@ -24,7 +24,7 @@ function hasUpperCase(string) {//tem maiúsucla
             return i;
         }
     }
-    return 0;
+    return -1;
 }
 
 let displayAllNone3 = (div, div2, div3) =>{//esconde divs
@@ -57,9 +57,9 @@ let register = () =>{
         return;
     }
 
-    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;//regex de verificacao de email (roubado)
+    var regularExpression = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;//regex de verificacao de email (roubado)
 
-    if(!email.match(validRegex)){
+    if(!email.match(regularExpression)){
         clearEmail();
         showErrorMessage("emailError", "Email inválido!");
         return;
@@ -77,9 +77,15 @@ let register = () =>{
         return;
     }
 
-    if(password.length < 5){
+    if(password.length < 8){
         clearPasswords();
-        showErrorMessage("passwordError", "Palavra passe possui menos de 5 caracteres!");
+        showErrorMessage("passwordError", "Palavra passe possui menos de 8 caracteres!");
+        return;
+    }
+
+    if(password.length > 16){
+        clearPasswords();
+        showErrorMessage("passwordError", "Palavra passe possui mais de 16 caracteres!");
         return;
     }
 
@@ -89,7 +95,7 @@ let register = () =>{
         return;
     }
 
-    if(hasUpperCase(password) != 0){//verifica se tem maiuscula
+    if(hasUpperCase(password) == -1){//verifica se tem maiuscula
         clearPasswords();
         showErrorMessage("passwordError", "Palavra passe não possui maiúsculas!");
         return;
