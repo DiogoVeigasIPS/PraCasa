@@ -77,9 +77,15 @@ let register = () =>{
         return;
     }
 
-    if(password.length < 5){
+    if(password.length < 8){
         clearPasswords();
-        showErrorMessage("passwordError", "Palavra passe possui menos de 5 caracteres!");
+        showErrorMessage("passwordError", "Palavra passe possui menos de 8 caracteres!");
+        return;
+    }
+
+    if(password.length < 16){
+        clearPasswords();
+        showErrorMessage("passwordError", "Palavra passe possui mais de 16 caracteres!");
         return;
     }
 
