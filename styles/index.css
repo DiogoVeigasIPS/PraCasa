@@ -140,9 +140,6 @@ h1{
         row-gap: 3vw;
     }
 
-    /* main{
-        padding: 3vw;
-    } */
 }
 
 @media screen and (min-width: 840px) and (max-width:940px){
@@ -160,17 +157,6 @@ h1{
         font-size: var(--text-size);
     }
 }
-
-/* @media screen and (min-width: 1500px){
-    main{
-        padding-left: 12vw;
-        padding-right: 12vw;
-    }
-    .slider-header{
-        padding-left: calc(12vw + 1rem);
-        padding-right: calc(12vw + 1rem);
-    } 
-} */
 
 /* -----------------------novidades e descontos----------------------- */
 

@@ -23,7 +23,7 @@
                 <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe><!-- serve para puder redirecionar com js mesmo com form -->
                 <form action="#" class="login-form" method="post" target="dummyframe">
                     <fieldset class="login-fieldset">
-                        <h1>Entrar</h1>
+                        <h1>Criar</h1>
                         <div class="login-menu">
                             <div class="email-input">
                                 <label for="email">Email</label>
@@ -35,28 +35,35 @@
                             <div class="password-input">
                                 <label for="password">Palavra-Passe</label>
                                 <input type="password" id="password" name="password">
+                                <div class="error-message" id="passwordError">
+                                    <!-- mensagem erro dinamica -->
+                                </div>
                             </div>
-                            <div class="error-message" id="passwordError">
-                                <!-- mensagem erro dinamica -->
+                            <div class="password-input">
+                                <label for="password">Repita a Palavra-Passe</label>
+                                <input type="password" id="password2" name="password">
+                                <div class="error-message" id="password2Error">
+                                    <!-- mensagem erro dinamica -->
+                                </div>
                             </div>
                         </div>
 
                         <div class="center-continue">
-                            <input onclick="login()" type="submit" value="Continuar" class="continue">
+                            <input onclick="register()" type="submit" value="Continuar" class="continue">
                         </div>
 
                         <p class="acccept-terms">Ao continuar está a aceitar os <a href="#">Termos de Condição</a> de Uso e Serviço.</p>
                         <p class="need-help" onclick="mostrarDiv('need-help-plus', 'help-caret')"><i id="help-caret" class="fa fa-caret-right" aria-hidden="true"></i> Precisa de ajuda?</p>
                         <div id="need-help-plus" class="need-help-plus">
-                            <p><a href="#">Esqueceu-se da Palavra-passe?</a></p>
-                            <p><a href="#">Outros problemas a entrar na conta?</a></p>
+                            <p><a href="#">Deseja enviar-nos um email?</a></p>
+                            <p><a href="#">Precisa de ajuda de um assitente?</a></p>
                         </div>
                     </fieldset>
                     <fieldset class="register-fieldset">
-                        <legend>Novo à PraCasa?</legend>
-                        <a href="register.html">
+                        <legend>Já tem conta?</legend>
+                        <a href="login.html">
                             <button class="create-account-button" type="button">
-                            Cria já a tua conta!</button>
+                            Entra já!</button>
                         </a>
                     </fieldset>
                 </form>
@@ -76,6 +83,7 @@
     </div>
 
     <script src="scripts/login.js"></script>
+    <script src="scripts/register.js"></script>
     <script src="scripts/nav-bar-login.js"></script>
 </body>
 </html>

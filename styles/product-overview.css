@@ -91,7 +91,7 @@ input[type=checkbox].show-filters:checked ~ .filter-box{
         gap: 1rem; 
     }
     .filter-box .select-rating{
-        width: 15vw;
+        width: 5rem;
     }
 }
 
@@ -157,7 +157,7 @@ input[type=checkbox].show-filters:checked ~ .filter-box{
         grid-template-columns: 1fr 3fr;
     }
     .filter-box .select-rating{
-        width: 10vw;
+        width: 5rem;
     }
 }
 
