@@ -85,3 +85,9 @@ function login(){//Entrar sessao
         showErrorMessage("emailError", "Uma conta com esse email não existe!");
     }
 }
+
+//apagar armazenamento local e maneira rápida
+let clearLocalStorage = () =>{
+    localStorage.clear();
+    alert("Armazenamento local apagado com sucesso.");
+}

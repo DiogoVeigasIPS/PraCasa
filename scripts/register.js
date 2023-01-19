@@ -61,7 +61,7 @@ let register = () =>{
 
     if(!email.match(regularExpression)){
         clearEmail();
-        showErrorMessage("emailError", "Email inválido!");
+        showErrorMessage("emailError", "Email inválido! (Ex: example@gmail.com)");
         return;
     }
 
@@ -73,31 +73,31 @@ let register = () =>{
 
     if(password != password2){
         clearPasswords();
-        showErrorMessage("password2Error", "Palavras-passe não coincidem!");
+        showErrorMessage("password2Error", "As palavras passe não são iguais!");
         return;
     }
 
     if(password.length < 8){
         clearPasswords();
-        showErrorMessage("passwordError", "Palavra passe possui menos de 8 caracteres!");
+        showErrorMessage("passwordError", "A palavra passe deve possuir pelo menos 8 caracteres!");
         return;
     }
 
     if(password.length > 16){
         clearPasswords();
-        showErrorMessage("passwordError", "Palavra passe possui mais de 16 caracteres!");
+        showErrorMessage("passwordError", "A palavra passe não deve possuir mais de 16 caracteres!");
         return;
     }
 
     if(hasNumeric(password) == 0){//verifica se tem numero
         clearPasswords();
-        showErrorMessage("passwordError", "Palavra passe não possui números!");
+        showErrorMessage("passwordError", "A palavra passe deve possuir pelo menos 1 número!");
         return;
     }
 
     if(hasUpperCase(password) == -1){//verifica se tem maiuscula
         clearPasswords();
-        showErrorMessage("passwordError", "Palavra passe não possui maiúsculas!");
+        showErrorMessage("passwordError", "A palavra passe deve possuir pelo menos 1 maiúscula!");
         return;
     }
 

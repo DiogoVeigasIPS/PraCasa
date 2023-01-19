@@ -167,7 +167,8 @@ legend{
     background-color: rgb(255, 233, 233);
     padding: 0.6rem;
     display: none;
-    max-width: 28rem;
+    max-width: 20rem;
+    font-size: 0.8rem;
 }
 
 /*--------------------------mini-footer--------------------------*/
