@@ -23,6 +23,12 @@ ul{
     margin-left: 0.625rem;
 }
 
+@media screen and (max-width: 400px) {/* para telemoveis menos sofisticados */
+    .logo{
+        font-size: 3.2rem;
+    }
+}
+
 /* Nav menu */
 .header .options{
     font-size: larger;
@@ -105,14 +111,6 @@ ul{
     bottom: 0;
     left: 0;
 }
-
-/* .side-menu:checked ~ nav::before{
-    content: "Opções";
-    font-size: 2.5rem;
-    margin-left: 0.625rem;
-    color: var(--whiteNav);
-    border-bottom: 0.5rem var(--whiteNav) solid;
-} */
 
 .side-menu:checked ~ .hamb .hamb-line {
     background: transparent;
