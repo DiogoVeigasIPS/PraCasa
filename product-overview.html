@@ -32,7 +32,8 @@
 
     <!-- Search Bar -->
     <div class="search-bar">
-        <form class="center" action="#" method="get">
+        <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe><!-- serve para puder redirecionar com js mesmo com form -->
+        <form class="center" action="#" method="get" target="dummyframe">
             <div><input name="searchContent" type="search" id="searchBar" onkeyup="searchProducts()"  placeholder="Pesquisa..."></div>
         </form>
     </div>
